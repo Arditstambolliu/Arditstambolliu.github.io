@@ -6,13 +6,14 @@
         body {
             margin: 0;
             height: 100vh;
-            background: linear-gradient(135deg, #ff4e50, #fc913a);
+            background: linear-gradient(135deg, #ff4e50, #ff6f91);
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             text-align: center;
             overflow: hidden;
+            color: white;
         }
 
         .container {
@@ -20,7 +21,7 @@
             padding: 50px;
             border-radius: 25px;
             backdrop-filter: blur(15px);
-            color: white;
+            position: relative;
         }
 
         h1 {
@@ -34,7 +35,7 @@
             border-radius: 15px;
             cursor: pointer;
             margin: 15px;
-            transition: 0.3s ease;
+            transition: 0.2s ease;
         }
 
         .yes {
@@ -48,8 +49,16 @@
             position: absolute;
         }
 
-        .yes:hover {
-            transform: scale(1.1);
+        #bigHeart {
+            font-size: 120px;
+            display: none;
+            animation: pop 0.5s ease forwards;
+        }
+
+        #kiss {
+            font-size: 80px;
+            display: none;
+            margin-top: 10px;
         }
 
         #message {
@@ -57,25 +66,55 @@
             font-size: 1.5rem;
             display: none;
         }
+
+        #warning {
+            margin-top: 15px;
+            font-size: 1.3rem;
+            display: none;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Will You Be My Valentine TOTOSHE? ❤️</h1>
-    <button class="yes" onclick="showLove()">Yes 💕</button>
-    <button class="no" onmouseover="moveButton(this)">No 😢</button>
-    <div id="message">You made me the happiest person 🥰❤️</div>
+    <h1>Will You Be My Valentine? ❤️</h1>
+
+    <button class="yes" onclick="yesClicked()">Yes 💕</button>
+    <button class="no" id="noBtn" onmouseover="moveButton()">No 😢</button>
+
+    <div id="warning">HE MI SHTYPE 😏</div>
+
+    <div id="bigHeart">❤️</div>
+    <div id="kiss">😘</div>
+    <div id="message"></div>
 </div>
 
 <script>
-function showLove() {
-    document.getElementById("message").style.display = "block";
+function yesClicked() {
+    document.getElementById("bigHeart").style.display = "block";
+
+    setTimeout(function() {
+        document.getElementById("kiss").style.display = "block";
+        document.getElementById("message").innerHTML = "You made me the happiest person alive 🥰❤️";
+        document.getElementById("message").style.display = "block";
+    }, 800);
 }
 
-function moveButton(button) {
-    button.style.top = Math.random() * window.innerHeight + "px";
-    button.style.left = Math.random() * window.innerWidth + "px";
+function moveButton() {
+    var button = document.getElementById("noBtn");
+
+    var x = Math.random() * (window.innerWidth - 100);
+    var y = Math.random() * (window.innerHeight - 50);
+
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+
+    document.getElementById("warning").style.display = "block";
 }
 </script>
 
