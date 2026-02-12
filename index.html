@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For Someone Special ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff4e50, #fc913a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(255,255,255,0.15);
+            padding: 50px;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            margin: 15px;
+            transition: 0.3s ease;
+        }
+
+        .yes {
+            background-color: #ff2e63;
+            color: white;
+        }
+
+        .no {
+            background-color: white;
+            color: #ff2e63;
+            position: absolute;
+        }
+
+        .yes:hover {
+            transform: scale(1.1);
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Will You Be My Valentine TOTOSHE? ❤️</h1>
+    <button class="yes" onclick="showLove()">Yes 💕</button>
+    <button class="no" onmouseover="moveButton(this)">No 😢</button>
+    <div id="message">You made me the happiest person 🥰❤️</div>
+</div>
+
+<script>
+function showLove() {
+    document.getElementById("message").style.display = "block";
+}
+
+function moveButton(button) {
+    button.style.top = Math.random() * window.innerHeight + "px";
+    button.style.left = Math.random() * window.innerWidth + "px";
+}
+</script>
+
+</body>
+</html>
